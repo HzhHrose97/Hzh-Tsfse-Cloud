@@ -50,18 +50,31 @@ Hoxton.SR10
 See all of the included issues and pull requests at the GitHub project. Hoxton.SR10 is compatible with Spring Boot 2.3.x and 2.2.x.
 
 Spring Cloud Gateway 2.2.7.RELEASE (issues)
+
 Spring Cloud Starter Build Hoxton.SR10
+
 Spring Cloud Aws 2.2.6.RELEASE (issues)
+
 Spring Cloud Cli 2.2.4.RELEASE
+
 Spring Cloud Sleuth 2.2.7.RELEASE (issues)
+
 Spring Cloud Vault 2.2.7.RELEASE (issues)
+
 Spring Cloud Openfeign 2.2.7.RELEASE (issues)
+
 Spring Cloud Commons 2.2.7.RELEASE (issues)
+
 Spring Cloud Kubernetes 1.1.8.RELEASE
+
 Spring Cloud Config 2.2.7.RELEASE (issues)
+
 Spring Cloud Contract 2.2.6.RELEASE (issues)
+
 Spring Cloud Netflix 2.2.7.RELEASE (issues)
+
 Spring Cloud Consul 2.2.6.RELEASE (issues)
+
 Spring Cloud Gcp 1.2.7.RELEASE
 
 # DB备份
