@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzh.common.mapper.event.FootballEventInfoMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzh.common.pojo.event.FootballEventInfo">
+        <id column="physical_id" property="physicalId" />
+        <result column="physical_name" property="physicalName" />
+        <result column="held_country" property="heldCountry" />
+        <result column="held_location" property="heldLocation" />
+        <result column="held_home" property="heldHome" />
+        <result column="maximum_capacity" property="maximumCapacity" />
+        <result column="away_ground" property="awayGround" />
+        <result column="physical_held_logo" property="physicalHeldLogo" />
+        <result column="physical_desc" property="physicalDesc" />
+        <result column="physical_status" property="physicalStatus" />
+        <result column="match_time" property="matchTime" />
+        <result column="held_venues" property="heldVenues" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        physical_id, physical_name, held_country, held_location, held_home, maximum_capacity, away_ground, physical_held_logo, physical_desc, physical_status, match_time, held_venues
+    </sql>
+
+</mapper>

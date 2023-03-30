@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzh.common.mapper.team.FootballCoachInfoMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzh.common.pojo.team.FootballCoachInfo">
+        <id column="coach_team_id" property="coachTeamId" />
+        <result column="coach_id" property="coachId" />
+        <result column="coach_name" property="coachName" />
+        <result column="coach_time" property="coachTime" />
+        <result column="coach_height" property="coachHeight" />
+        <result column="coach_won_num" property="coachWonNum" />
+        <result column="coach_total" property="coachTotal" />
+        <result column="coach_weight" property="coachWeight" />
+        <result column="coach_country" property="coachCountry" />
+        <result column="coach_age" property="coachAge" />
+        <result column="coach_uniform_number" property="coachUniformNumber" />
+        <result column="coach_location" property="coachLocation" />
+        <result column="coach_practitioners_age" property="coachPractitionersAge" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        coach_team_id, coach_id, coach_name, coach_time, coach_height, coach_won_num, coach_total, coach_weight, coach_country, coach_age, coach_uniform_number, coach_location, coach_practitioners_age
+    </sql>
+
+</mapper>

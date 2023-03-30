@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzh.common.mapper.team.BasketballPalyerInfoMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzh.common.pojo.team.BasketballPalyerInfo">
+        <id column="palyer_id" property="palyerId" />
+        <result column="team_id" property="teamId" />
+        <result column="palyer_name" property="palyerName" />
+        <result column="player_age" property="playerAge" />
+        <result column="player_sex" property="playerSex" />
+        <result column="palyer_height" property="palyerHeight" />
+        <result column="player_weight" property="playerWeight" />
+        <result column="player_num" property="playerNum" />
+        <result column="player_nationality" property="playerNationality" />
+        <result column="player_location" property="playerLocation" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        palyer_id, team_id, palyer_name, player_age, player_sex, palyer_height, player_weight, player_num, player_nationality, player_location
+    </sql>
+
+</mapper>

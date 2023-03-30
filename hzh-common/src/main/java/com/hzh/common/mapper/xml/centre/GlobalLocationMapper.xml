@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzh.common.mapper.centre.GlobalLocationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzh.common.pojo.centre.GlobalLocation">
+        <id column="GL_ID" property="glId" />
+        <result column="GLP_ID" property="glpId" />
+        <result column="LEVEL" property="level" />
+        <result column="PATH" property="path" />
+        <result column="CODE" property="code" />
+        <result column="ABBREVIATION" property="abbreviation" />
+        <result column="CHINESE_NAME" property="chineseName" />
+        <result column="ENGLISH_NAME" property="englishName" />
+        <result column="INITIALS" property="initials" />
+        <result column="PINYIN" property="pinyin" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        GL_ID, GLP_ID, LEVEL, PATH, CODE, ABBREVIATION, CHINESE_NAME, ENGLISH_NAME, INITIALS, PINYIN
+    </sql>
+
+</mapper>
