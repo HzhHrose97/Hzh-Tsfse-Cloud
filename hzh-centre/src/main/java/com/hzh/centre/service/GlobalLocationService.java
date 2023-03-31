@@ -20,6 +20,5 @@ public interface GlobalLocationService extends IService<GlobalLocation> {
 
     List<GlobalLocation> globalLocationGetAll();
 
-
     IPage<GlobalLocation> selectPage(Page<GlobalLocation> page);
 }

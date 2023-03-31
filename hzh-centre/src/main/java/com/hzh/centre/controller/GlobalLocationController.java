@@ -4,7 +4,6 @@ package com.hzh.centre.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.centre.service.GlobalLocationService;
-import com.hzh.common.pojo.centre.ChinaCity;
 import com.hzh.common.pojo.centre.GlobalLocation;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.respone.Result;
