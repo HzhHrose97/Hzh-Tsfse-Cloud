@@ -2,6 +2,7 @@ package com.hzh.order;
 
 import com.hzh.centre.config.DefaultFeignConfiguration;
 import com.hzh.centre.openfeign.HzhEventClient;
+import com.hzh.centre.openfeign.HzhTeamClinet;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @Slf4j
 @MapperScan("com.hzh.common.mapper")
 @SpringBootApplication(scanBasePackages = {"com.hzh"} )
-@EnableFeignClients(clients = {HzhEventClient.class}, defaultConfiguration = DefaultFeignConfiguration.class)
+@EnableFeignClients(clients = {HzhEventClient.class, HzhTeamClinet.class}, defaultConfiguration = DefaultFeignConfiguration.class)
 public class HzhOrderApplication {
 
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package com.hzh.centre.handler;
 
 import com.hzh.centre.openfeign.HzhTeamClinet;
+import com.hzh.common.respone.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -13,4 +14,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class HzhTeamClientHandler implements HzhTeamClinet {
 
+    @Override
+    public Result getAllBashetballTeamInfo() {
+        log.error("球队中心调度发生熔断");
+        return Result.FAILED("球队中心调度发生熔断");
+    }
 }

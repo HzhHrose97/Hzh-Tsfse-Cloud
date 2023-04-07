@@ -1,7 +1,10 @@
 package com.hzh.centre.openfeign;
 
 import com.hzh.centre.handler.HzhTeamClientHandler;
+import com.hzh.common.respone.Result;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * 球队远程调用api接口
@@ -14,5 +17,6 @@ public interface HzhTeamClinet {
 
 
 
-
+    @RequestMapping(value = "/hzh-team/basketballTeamInfo/getAllBasketBallTeamInfo",method = RequestMethod.GET)
+    Result getAllBashetballTeamInfo();
 }
