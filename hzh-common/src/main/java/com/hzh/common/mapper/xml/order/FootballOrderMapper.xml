@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzh.common.mapper.order.FootballOrderMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzh.common.pojo.order.FootballOrder">
+        <id column="order_id" property="orderId" />
+        <result column="user_id" property="userId" />
+        <result column="coupon_id" property="couponId" />
+        <result column="create_time" property="createTime" />
+        <result column="member_username" property="memberUsername" />
+        <result column="total_amount" property="totalAmount" />
+        <result column="pay_amount" property="payAmount" />
+        <result column="promotion_amount" property="promotionAmount" />
+        <result column="integration_amount" property="integrationAmount" />
+        <result column="coupon_amount" property="couponAmount" />
+        <result column="discount_amount" property="discountAmount" />
+        <result column="pay_type" property="payType" />
+        <result column="status" property="status" />
+        <result column="integration" property="integration" />
+        <result column="bill_type" property="billType" />
+        <result column="bill_header" property="billHeader" />
+        <result column="bill_content" property="billContent" />
+        <result column="bill_receiver_phone" property="billReceiverPhone" />
+        <result column="bill_receiver_email" property="billReceiverEmail" />
+        <result column="note" property="note" />
+        <result column="use_integration" property="useIntegration" />
+        <result column="payment_time" property="paymentTime" />
+        <result column="order_state" property="orderState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_id, user_id, coupon_id, create_time, member_username, total_amount, pay_amount, promotion_amount, integration_amount, coupon_amount, discount_amount, pay_type, status, integration, bill_type, bill_header, bill_content, bill_receiver_phone, bill_receiver_email, note, use_integration, payment_time, order_state
+    </sql>
+
+</mapper>

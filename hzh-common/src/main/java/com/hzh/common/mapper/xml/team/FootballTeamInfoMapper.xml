@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzh.common.mapper.team.FootballTeamInfoMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzh.common.pojo.team.FootballTeamInfo">
+        <id column="team_id" property="teamId" />
+        <result column="team_name" property="teamName" />
+        <result column="team_country" property="teamCountry" />
+        <result column="team_date" property="teamDate" />
+        <result column="team_logo" property="teamLogo" />
+        <result column="team_local" property="teamLocal" />
+        <result column="team_home" property="teamHome" />
+        <result column="team_league" property="teamLeague" />
+        <result column="team_overall_champion" property="teamOverallChampion" />
+        <result column="team_partition_champion" property="teamPartitionChampion" />
+        <result column="team_playoffs" property="teamPlayoffs" />
+        <result column="team_administrator" property="teamAdministrator" />
+        <result column="team_coach" property="teamCoach" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        team_id, team_name, team_country, team_date, team_logo, team_local, team_home, team_league, team_overall_champion, team_partition_champion, team_playoffs, team_administrator, team_coach
+    </sql>
+
+</mapper>
