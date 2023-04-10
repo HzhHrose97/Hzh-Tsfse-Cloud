@@ -98,5 +98,8 @@ public class FootballOrder implements Serializable {
   @ApiModelProperty(value = "逻辑删除")
   private String orderState;
 
+  @ApiModelProperty(value = "订单数量")
+  private String orderTotal;
+
 
 }

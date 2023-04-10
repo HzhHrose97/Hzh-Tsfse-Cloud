@@ -32,7 +32,7 @@ public class BasketballOrder implements Serializable {
   @TableId(value = "order_id", type = IdType.ID_WORKER_STR)
   private String orderId;
 
-  @ApiModelProperty(value = "购票人id")
+  @ApiModelProperty(value = "购票人id",required = true)
   private Long userId;
 
   @ApiModelProperty(value = "使用的优惠券")
@@ -97,6 +97,9 @@ public class BasketballOrder implements Serializable {
 
   @ApiModelProperty(value = "逻辑删除")
   private String orderState;
+
+  @ApiModelProperty(value = "订单数量")
+  private String orderTotal;
 
 
 }

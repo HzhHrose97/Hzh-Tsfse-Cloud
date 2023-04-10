@@ -8,14 +8,20 @@ import com.hzh.centre.openfeign.HzhTeamClinet;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.order.BasketballOrder;
 import com.hzh.common.respone.Result;
+import com.hzh.common.utils.DateUtils;
+import com.hzh.common.utils.RedisKeyUtil;
+import com.hzh.common.utils.RedisUtils;
 import com.hzh.order.service.BasketballOrderService;
+import com.mysql.cj.util.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -40,6 +46,12 @@ public class BasketballOrderController {
 
     @Resource
     private HzhTeamClinet hzhTeamClinet;
+
+    @Resource
+    private RedisKeyUtil redisKeyUtil;
+
+    @Resource
+    private RedisUtils redisUtils;
 
     @ApiOperation(value = "获取篮球订单全部信息",tags = "篮球订单")
     @GetMapping("/getAllBasketBallInfo")
@@ -89,6 +101,42 @@ public class BasketballOrderController {
         }catch (Exception e){
             log.error("getAllBashetballEventInfo  error",e);
             throw new RuntimeException("getAllBashetballEventInfo error");
+        }
+    }
+
+    @PostMapping("/addBashetballOrderInfo")
+    @ApiOperation(value = "新增篮球订单",tags = "篮球订单")
+    public Result addBashetballOrderInfo(@RequestBody BasketballOrder basketballOrder){
+        try {
+            if (basketballOrder == null){
+                return Result.FAILED("请求参数为空");
+            }else {
+                //订单创建日期
+                String createOrderData = DateUtils.getCurrent(DateUtils.datePattern); //2023/03/07
+                String basketballRediskey = redisKeyUtil.mkBasketBallOrderInfo(basketballOrder.getOrderId(),basketballOrder.getUserId(),createOrderData);
+                String redisValue = redisUtils.get(basketballRediskey);
+                if (StringUtils.isNullOrEmpty(redisValue)){
+                    Integer redisAppend = redisUtils.append(basketballRediskey, String.valueOf(basketballOrder));
+                    Integer DBAppend = basketballOrderService.addBashetballOrderInfo(basketballOrder);
+                    if (redisAppend > 0 && DBAppend == 1){
+                        return Result.SUCCESS("篮球订单新增成功");
+                    }else {
+                        return Result.FAILED("篮球订单新增失败");
+                    }
+                }else {
+                    redisUtils.delete(basketballRediskey);
+                    Integer append = redisUtils.append(basketballRediskey, String.valueOf(basketballOrder));
+                    Integer DBupdate = basketballOrderService.updateaBashetballOrderInfo(basketballOrder);
+                    if (append > 1 && DBupdate == 1){
+                        return Result.SUCCESS("篮球订单新增成功");
+                    }else {
+                        return Result.FAILED("篮球订单新增失败");
+                    }
+                }
+            }
+        }catch (Exception e){
+            log.error("addBashetballOrderInfo  error",e);
+            throw new RuntimeException("addBashetballOrderInfo error");
         }
     }
 

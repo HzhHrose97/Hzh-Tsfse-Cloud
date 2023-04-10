@@ -11,7 +11,7 @@
 # echo $0 status 是查看服务状态
 
 # 指定JAR包文件夹，将来运行的时候，此文件需要与jar包同级
-AppName=你的jar名字.jar
+AppName=hzhUser.jar
 
 # JVM参数
 JVM_OPTS="-Dname=$AppName  -Duser.timezone=Asia/Shanghai -Xms512M -Xmx512M -XX:PermSize=256M -XX:MaxPermSize=512M -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps  -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC -Dspring.profiles.active=pro -Dserver.port=18083"

@@ -1,5 +1,6 @@
 package com.hzh.order.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.order.BasketballOrder;
@@ -44,6 +45,31 @@ public class BasketballOrderServiceImpl extends ServiceImpl<BasketballOrderMappe
         }catch (Exception e){
             log.error("BasketballOrderServiceImpl selectPage error",e);
             throw new RuntimeException("BasketballOrderServiceImpl selectPage error");
+        }
+    }
+
+    @Override
+    public Integer addBashetballOrderInfo(BasketballOrder basketballOrder) {
+        try {
+            int insert = basketballOrderMapper.insert(basketballOrder);
+            return insert;
+        }catch (Exception e){
+            log.error("addBashetballOrderInfo error",e);
+            throw new RuntimeException("addBashetballOrderInfo error");
+        }
+    }
+
+    @Override
+    public Integer updateaBashetballOrderInfo(BasketballOrder basketballOrder) {
+        try {
+            QueryWrapper<BasketballOrder> wrapper = new QueryWrapper<>();
+            wrapper.eq("order_id",basketballOrder.getOrderId())
+                    .eq("user_id",basketballOrder.getUserId());
+            int update = basketballOrderMapper.update(basketballOrder, wrapper);
+            return update;
+        }catch (Exception e){
+            log.error("updateaBashetballOrderInfo error",e);
+            throw new RuntimeException("updateaBashetballOrderInfo error");
         }
     }
 }

@@ -73,4 +73,18 @@ public class RedisKeyUtil {
                 .append(tokenkey);
         return stringBuffer.toString().trim();
     }
+
+    //篮球订单key
+    public String mkBasketBallOrderInfo(String orderId, Long userId, String data) {
+        StringBuffer stringBuffer = new StringBuffer("Order");
+        stringBuffer.append(":")
+                .append("Basketball")
+                .append(":")
+                .append(orderId)
+                .append(":")
+                .append(userId)
+                .append(":")
+                .append(data);
+        return stringBuffer.toString().trim();
+    }
 }

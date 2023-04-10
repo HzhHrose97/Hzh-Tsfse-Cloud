@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2023-03-27
  */
 @RestController
-@RequestMapping("//hzh-user-token")
+@RequestMapping("/hzhUserToken")
 public class HzhUserTokenController {
 
 }

@@ -20,4 +20,8 @@ public interface BasketballOrderService extends IService<BasketballOrder> {
     List<BasketballOrder> getAllBasketBallInfo();
 
     IPage<BasketballOrder> selectPage(Page<BasketballOrder> page);
+
+    Integer addBashetballOrderInfo(BasketballOrder basketballOrder);
+
+    Integer updateaBashetballOrderInfo(BasketballOrder basketballOrder);
 }
