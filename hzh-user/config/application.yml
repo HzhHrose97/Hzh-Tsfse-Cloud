@@ -14,13 +14,14 @@ spring:
       tables:
 
 #  # 邮件发送
-#  mail:
-#    host: smtp.qq.com
-#    port: 465
-#    username: 1391210212@qq.com
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 1391210212@qq.com
 #    password: Asdfghjkl629...
-#    default-encoding: UTF-8
-#    protocol: smtps
+    password: qyfdrxqdfumbibfb
+    default-encoding: UTF-8
+    protocol: smtps
 
 
   redis:
