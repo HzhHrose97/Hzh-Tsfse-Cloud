@@ -22,4 +22,8 @@ public interface HzhUserService extends IService<HzhUser> {
     IPage<HzhUser> selectPage(Page<HzhUser> page);
 
     Result sendEmailCode(String email);
+
+    Result updatePasswordByuserSelf(RegisterDTO registerDTO);
+
+    Result sendEmailCodeWhenUpdatePassword(String email);
 }

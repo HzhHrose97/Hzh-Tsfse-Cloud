@@ -87,4 +87,13 @@ public class RedisKeyUtil {
                 .append(data);
         return stringBuffer.toString().trim();
     }
+
+    public String mkUpdatePasswordIPRedisKey(String remoteAddr) {
+        StringBuffer stringBuffer = new StringBuffer("User");
+        stringBuffer.append(":")
+                .append("UpdatePassword")
+                .append(":")
+                .append(remoteAddr);
+        return stringBuffer.toString().trim();
+    }
 }

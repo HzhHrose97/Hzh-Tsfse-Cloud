@@ -30,4 +30,12 @@
         id, user_name, password, user_description, status, email, phonenumber, sex, avatar, user_type, level, salt, create_time, update_by, update_time, del_flag
     </sql>
 
+    <update id="updatePasswordByuserSelf">
+        UPDATE hzh_user
+        SET PASSWORD = #{password},
+            create_time = #{date}
+        WHERE
+            ( email = #{email} AND phonenumber = #{phonenumber} )
+    </update>
+
 </mapper>

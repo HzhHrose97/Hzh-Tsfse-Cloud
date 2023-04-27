@@ -54,7 +54,7 @@ public class HzhUserController {
 
     @ApiOperation("用户注册")
     @PostMapping("/user/register")
-    public Result registerUser(@RequestBody RegisterDTO registerDTO) throws Exception {
+    public Result registerUser(@RequestBody RegisterDTO registerDTO) {
         try {
             return hzhUserService.registerUser(registerDTO);
         }catch (Exception e){
@@ -78,7 +78,7 @@ public class HzhUserController {
         }
     }
 
-    @ApiOperation("发送邮箱验证码")
+    @ApiOperation("用户注册时发送邮箱验证码")
     @GetMapping("/user/sendEmailCode")
     public Result sendEmailCode(@RequestParam("email")String email){
         try {
@@ -86,10 +86,39 @@ public class HzhUserController {
                 return Result.FAILED("邮箱不可以为空!");
             }
             Result meailCode = hzhUserService.sendEmailCode(email);
-            return Result.SUCCESS("发送成功，请查看注册邮箱");
+            return Result.SUCCESS("发送成功，请查看注册邮箱",meailCode);
         }catch (Exception e){
             log.error("sendEmailCode error",e);
             throw new RuntimeException("sendEmailCode error");
+        }
+    }
+
+    @ApiOperation("用户修改密码时发送邮箱验证码")
+    @GetMapping("/user/sendEmailCodeWhenUpdatePassword")
+    public Result sendEmailCodeWhenUpdatePassword(@RequestParam("email")String email){
+        try {
+            if (email.isEmpty()){
+                return Result.FAILED("邮箱不可以为空!");
+            }
+            return  hzhUserService.sendEmailCodeWhenUpdatePassword(email);
+        }catch (Exception e){
+            log.error("sendEmailCode error",e);
+            throw new RuntimeException("sendEmailCode error");
+        }
+    }
+
+    @ApiOperation("用户根据phone、email修改密码")
+    @PostMapping("/user/updatePasswordByuserSelf")
+    public Result updatePasswordByuserSelf(@RequestBody RegisterDTO registerDTO){
+        try {
+            if (registerDTO == null){
+                return Result.FAILED("params not null");
+            }else {
+               return hzhUserService.updatePasswordByuserSelf(registerDTO);
+            }
+        }catch (Exception e){
+            log.error("updatePasswordByuserSelf  error",e);
+            throw new RuntimeException("updatePasswordByuserSelf error");
         }
     }
 
