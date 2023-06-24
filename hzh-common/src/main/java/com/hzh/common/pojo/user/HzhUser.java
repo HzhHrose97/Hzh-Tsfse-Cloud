@@ -31,10 +31,10 @@ public class HzhUser implements Serializable {
   @TableId(value = "id", type = IdType.AUTO)
   private Long id;
 
-  @ApiModelProperty(value = "用户名")
+  @ApiModelProperty(value = "用户名" , required = true)
   private String userName;
 
-  @ApiModelProperty(value = "密码")
+  @ApiModelProperty(value = "密码"  , required = true)
   private String password;
 
   @ApiModelProperty(value = "用户描述")
@@ -43,7 +43,7 @@ public class HzhUser implements Serializable {
   @ApiModelProperty(value = "账号状态（0正常 1停用）")
   private String status;
 
-  @ApiModelProperty(value = "邮箱")
+  @ApiModelProperty(value = "邮箱", required = true)
   private String email;
 
   @ApiModelProperty(value = "手机号")

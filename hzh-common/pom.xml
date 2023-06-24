@@ -24,10 +24,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- java-mail-->
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
-            <version>1.6.2</version>
+            <version>${javax.main.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

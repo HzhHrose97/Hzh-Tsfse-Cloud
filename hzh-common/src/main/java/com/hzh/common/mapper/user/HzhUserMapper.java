@@ -2,6 +2,8 @@ package com.hzh.common.mapper.user;
 
 import com.hzh.common.pojo.user.HzhUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -11,6 +13,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Hzh
  * @since 2023-03-27
  */
+@Mapper
 public interface HzhUserMapper extends BaseMapper<HzhUser> {
 
+    int updatePasswordByuserSelf(@Param("password") String password,
+                                     @Param("phonenumber") String phonenumber,
+                                     @Param("email") String email,
+                                     @Param("date") String date);
 }
