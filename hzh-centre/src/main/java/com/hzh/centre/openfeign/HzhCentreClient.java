@@ -1,7 +1,7 @@
 package com.hzh.centre.openfeign;
 
 import com.hzh.centre.handler.HzhEventClientHandler;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface HzhCentreClient {
 
     @RequestMapping(value = "/hzh-centre/chinaCity/getAllChinaCity",method = RequestMethod.GET)
-    public Result getAllChinaCity();
+    public MyResult getAllChinaCity();
 
     @RequestMapping(value = "/hzh-centre/chinaCity/paginationGetAll",method = RequestMethod.GET)
-    public Result paginationGetAll();
+    public MyResult paginationGetAll();
 
 }

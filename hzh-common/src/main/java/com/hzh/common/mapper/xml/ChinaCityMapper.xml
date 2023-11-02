@@ -16,4 +16,7 @@
         id, pid, cityname, type, state
     </sql>
 
+    <select id="getAllChinaCity" resultMap="BaseResultMap">
+        select id, pid, cityname, type, state from china_city
+    </select>
 </mapper>

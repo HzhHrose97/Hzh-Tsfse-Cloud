@@ -9,9 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 class HzhCentreApplicationTests {
     @Value("${mybatis-plus.mapper-locations}")
     public  String mybatisPlusss;
+
+    @Value("${rocketmq.name-server}")
+    public String nameServer;
     @Test
     void contextLoads() {
         System.out.println(mybatisPlusss);
+        System.out.println(nameServer);
     }
 
 }

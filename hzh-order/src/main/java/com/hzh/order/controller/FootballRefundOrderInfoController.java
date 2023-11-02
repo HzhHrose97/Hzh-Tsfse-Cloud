@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.order.FootballRefundOrderInfo;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import com.hzh.order.service.FootballRefundOrderInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,10 +35,10 @@ public class FootballRefundOrderInfoController {
 
     @ApiOperation(value = "获取足球订单退款的全部信息",tags = "足球订单")
     @GetMapping("/getAllFootballRefundOrderInfo")
-    public Result getAllFootballRefundOrderInfo(){
+    public MyResult getAllFootballRefundOrderInfo(){
         try {
             List<FootballRefundOrderInfo> footballRefundOrderInfos =  footballRefundOrderInfoService.getAllFootballRefundOrderInfo();
-            return Result.SUCCESS("getAllFootballRefundOrderInfo success",footballRefundOrderInfos);
+            return MyResult.SUCCESS("getAllFootballRefundOrderInfo success",footballRefundOrderInfos);
         }catch (Exception e){
             log.error(" getAllFootballRefundOrderInfo  error",e);
             throw new RuntimeException("getAllFootballRefundOrderInfo error");
@@ -47,13 +47,13 @@ public class FootballRefundOrderInfoController {
 
     @ApiOperation(value = "分页获取足球订单退款的全部信息",tags = "足球订单")
     @PostMapping("/pageGetAllFootballRefundOrderInfo")
-    public Result pageGetAllFootballRefundOrderInfo(@RequestBody PaginationDTO paginationDTO){
+    public MyResult pageGetAllFootballRefundOrderInfo(@RequestBody PaginationDTO paginationDTO){
         try {
             int current = null == paginationDTO.getCurrent() ? 1 : paginationDTO.getCurrent();
             int size = null == paginationDTO.getSize() ? 10 :  paginationDTO.getSize();
             Page<FootballRefundOrderInfo> page = new Page<>(current, size);
             IPage<FootballRefundOrderInfo> footballRefundOrderInfoIPage = footballRefundOrderInfoService.selectPage(page);
-            return Result.SUCCESS("pageGetAllFootballRefundOrderInfo success",footballRefundOrderInfoIPage);
+            return MyResult.SUCCESS("pageGetAllFootballRefundOrderInfo success",footballRefundOrderInfoIPage);
         }catch (Exception e){
             log.error("pageGetAllFootballRefundOrderInfo  error",e);
             throw new RuntimeException("pageGetAllFootballRefundOrderInfo error");

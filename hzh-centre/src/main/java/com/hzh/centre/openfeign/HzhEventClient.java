@@ -1,12 +1,10 @@
 package com.hzh.centre.openfeign;
 
 import com.hzh.centre.handler.HzhEventClientHandler;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.Map;
 
 /**
  * @author Hou Zhonghu
@@ -16,6 +14,6 @@ import java.util.Map;
 public interface HzhEventClient {
 
     @RequestMapping(value = "/hzh-event/basketballEventInfo/getAllBashetballEventInfo",method = RequestMethod.GET)
-    public Result getAllBashetballEventInfo();
+    public MyResult getAllBashetballEventInfo();
 
 }

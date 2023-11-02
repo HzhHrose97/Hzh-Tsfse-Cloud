@@ -3,7 +3,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.order.FootballOrder;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import com.hzh.order.service.FootballOrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,10 +33,10 @@ public class FootballOrderController {
 
     @ApiOperation(value = "获取足球订单全部信息",tags = "足球订单")
     @GetMapping("/getAllFootballInfo")
-    public Result getAllFootballInfo(){
+    public MyResult getAllFootballInfo(){
         try {
             List<FootballOrder> footballOrdersList =  footballOrderService.getAllFootballInfo();
-            return Result.SUCCESS("getAllFootballInfo success",footballOrdersList);
+            return MyResult.SUCCESS("getAllFootballInfo success",footballOrdersList);
         }catch (Exception e){
             log.error(" getAllFootballInfo  error",e);
             throw new RuntimeException("getAllFootballInfo error");
@@ -45,13 +45,13 @@ public class FootballOrderController {
 
     @ApiOperation(value = "分页获取足球订单全部信息",tags = "足球订单")
     @PostMapping("/pageGetAllFootballOrderInfo")
-    public Result pageGetAllFootballOrderInfo(@RequestBody PaginationDTO paginationDTO){
+    public MyResult pageGetAllFootballOrderInfo(@RequestBody PaginationDTO paginationDTO){
         try {
             int current = null == paginationDTO.getCurrent() ? 1 : paginationDTO.getCurrent();
             int size = null == paginationDTO.getSize() ? 10 :  paginationDTO.getSize();
             Page<FootballOrder> page = new Page<>(current, size);
             IPage<FootballOrder> footballOrderIPage = footballOrderService.selectPage(page);
-            return Result.SUCCESS("pageGetAllFootballOrderInfo success",footballOrderIPage);
+            return MyResult.SUCCESS("pageGetAllFootballOrderInfo success",footballOrderIPage);
         }catch (Exception e){
             log.error("pageGetAllFootballOrderInfo  error",e);
             throw new RuntimeException("pageGetAllFootballOrderInfo error");

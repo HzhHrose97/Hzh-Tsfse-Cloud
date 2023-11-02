@@ -27,6 +27,7 @@
     spring-cloud Hoxton.SR10
     spring-cloud-agteway 2.2.7.RELEASE
     spring-cloud-alibaba 2.2.5.RELEASE
+    rocketmq 4.9.4
     
 4.Spring Cloud项目Gateway统一管理swagger接口
 
@@ -111,3 +112,25 @@ mybatis-plus-generator：MyBatis-Plus的代码生成器模块，可以根据数�
         网关中不需要的依赖  spring-boot-starter-web   和  mybatis-spring-boot-starter
 
 FeignConfig应该配置在消费者模块
+
+
+
+# rocketmq 相关配置
+rocketmq-spring-boot-starter 2.2.0及其以上版本，配置是这样的：
+
+    #rocketmq相关配置
+    rocketmq.nameServer=RocketMq服务IP地址:9876
+    rocketmq.producer.group=组id
+
+
+现在的情况是Hzh-Centre 中心模块做了生产者，生产了消息，最重要的一条是 同步消息，没有被其他模块的消费者消费
+
+
+# 运维部署
+1.关于jdk环境，除tsfse项目以外均使用jdk8,所以在各个子模块的start.sh文件中需要指定jdk11路径地址
+2.日志文件的配置信息以及项目配置信息均在conf文件下
+3.hzh-gataway模块可以到生产环境部署，其他模块无法生成jar包
+
+
+
+

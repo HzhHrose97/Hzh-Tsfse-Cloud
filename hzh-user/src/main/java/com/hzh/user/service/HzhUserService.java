@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.dto.RegisterDTO;
 import com.hzh.common.pojo.user.HzhUser;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 
 /**
  * <p>
@@ -17,13 +17,13 @@ import com.hzh.common.respone.Result;
  */
 public interface HzhUserService extends IService<HzhUser> {
 
-    Result registerUser(RegisterDTO registerDTO) throws Exception;
+    MyResult registerUser(RegisterDTO registerDTO) throws Exception;
 
     IPage<HzhUser> selectPage(Page<HzhUser> page);
 
-    Result sendEmailCode(String email);
+    MyResult sendEmailCode(String email);
 
-    Result updatePasswordByuserSelf(RegisterDTO registerDTO);
+    MyResult updatePasswordByuserSelf(RegisterDTO registerDTO);
 
-    Result sendEmailCodeWhenUpdatePassword(String email);
+    MyResult sendEmailCodeWhenUpdatePassword(String email);
 }

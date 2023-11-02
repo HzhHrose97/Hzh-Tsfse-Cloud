@@ -1,0 +1,79 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /hzh-order
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.195.135:3306/hzh_tsfse_cloud?useOldAliasMetadataBehavior=true&useSSL=false&serverTimezone=GMT
+    username: root
+    password: 5q6W7e8R
+  application:
+    name: orderService
+  cloud:
+    nacos:
+      server-addr: 192.168.195.135:8848 # Nacos服务地址
+      discovery:
+        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4 # 命名空间ID
+        ephemeral: false # 是否为临时实例
+      config:
+        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4 # 配置命名空间ID
+        group: TSTSE-SERVER # 配置分组
+        cluster: config # 配置集群名称
+        isGlobal: false # 是否为全局配置
+      watch:
+        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4 # 监控命名空间ID
+        group: TSTSE-SERVER # 监控分组
+        cluster: config # 监控集群名称
+      loadbalance:
+        algorithm: round_robin # 负载均衡算法，这里使用轮询算法
+      heartbeat:
+        enabled: true # 是否开启心跳检测功能
+        interval: 30000 # 心跳检测间隔时间，单位为毫秒
+        timeout: 10000 # 心跳超时时间，单位为毫秒
+      logging:
+        level: INFO # 日志级别，这里设置为INFO级别
+
+    rocketmq:
+      name-server: 192.168.195.135:9876 # RocketMQ的Name Server地址，可以使用环境变量配置
+      consumer:
+        group: Consumer-Order # 消费者所属的组名
+        topic: Hzh-Centre # 消费者要订阅的主题
+        enable-auto-commit: true # 是否开启自动提交消费位移
+        max-consume-thread: 10 # 最大消费线程数
+        consume-mode: CONCURRENTLY # 消费模式，可以是CONCURRENTLY（并发）或ORDERLY（顺序）
+
+  redis:
+    host: 192.168.195.135
+    port: 6379
+    pool:
+      max-active: 8
+      max-idle: 8
+      min-idle: 0
+      max-wait: -1
+
+  rocketmq:
+    name-server: 192.168.195.135:9876 # RocketMQ的Name Server地址，可以使用环境变量配置
+    consumer:
+      group: Consumer-Order # 消费者所属的组名
+      topic: Hzh-Centre # 消费者要订阅的主题
+      enable-auto-commit: true # 是否开启自动提交消费位移
+      max-consume-thread: 10 # 最大消费线程数
+      consume-mode: CONCURRENTLY # 消费模式，可以是CONCURRENTLY（并发）或ORDERLY（顺序）
+
+mybatis-plus:
+  type-aliases-package: com.hzh.common.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+#是否激活 swagger true or false
+swagger:
+  enable: true
+
+#对feign的优化 一个是 引入httpclient 开启连接池  另一个是日志开启级别
+feign:
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 # 最大连接数
+    max-connections-per-route: 50 # 单个路径的最大连接数

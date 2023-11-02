@@ -23,9 +23,9 @@ public class CodeGenerator extends AutoGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent("com.hzh.common");                // 父包名
-        pc.setController("controller");     // Controller包名
-        pc.setService("service");           // Service包名
-        pc.setServiceImpl("service.impl");  // Service Impl包名
+        //pc.setController("controller");     // Controller包名
+        //pc.setService("service");           // Service包名
+        //pc.setServiceImpl("service.impl");  // Service Impl包名
         pc.setMapper("mapper");             // Mapper包名
         pc.setEntity("pojo");             // Entity包名
         pc.setXml("mapper.xml");                        // Mapper XML包名
@@ -43,9 +43,9 @@ public class CodeGenerator extends AutoGenerator {
         gc.setAuthor("Hzh");          // 开发人员
         // 自定义文件命名，注意 %s 会自动填充表实体属性(各层文件名称方式，例如：%sAction生成UserAction, %s为占位符)
         gc.setEntityName("%s");
-        gc.setControllerName("%sController");
-        gc.setServiceName("%sService");
-        gc.setServiceImplName("%sServiceImpl");
+        //gc.setControllerName("%sController");
+        //gc.setServiceName("%sService");
+        //gc.setServiceImplName("%sServiceImpl");
         gc.setMapperName("%sMapper");
         gc.setXmlName("%sMapper");
         mpg.setGlobalConfig(gc);
@@ -55,7 +55,7 @@ public class CodeGenerator extends AutoGenerator {
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("5q6W7e8R");
-        dsc.setUrl("jdbc:mysql://192.168.195.131:3306/hzh_tsfse_cloud?useOldAliasMetadataBehavior=true&useSSL=false&serverTimezone=GMT");
+        dsc.setUrl("jdbc:mysql://192.168.195.135:3306/hzh_tsfse_cloud?useOldAliasMetadataBehavior=true&useSSL=false&serverTimezone=GMT");
         dsc.setDbType(DbType.MYSQL);   //数据库类型设置
         mpg.setDataSource(dsc);
 
@@ -63,7 +63,7 @@ public class CodeGenerator extends AutoGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setTablePrefix(""); // 去掉表名前缀
         strategy.setNaming(NamingStrategy.underline_to_camel); // 表名生成策略(underline_to_camel：下划线转驼峰命名)
-        strategy.setInclude("basketball_coach_info"); // 表名  DCustomerBase
+        strategy.setInclude("basketball_mq_consumer","basketball_mq_producter"); // 表名  DCustomerBase
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
 //        strategy.setSuperControllerClass("com.abc.xxx.controller.BaseController");
 //        strategy.setSuperEntityClass("com.abc.xxx.entity.BaseEntity");

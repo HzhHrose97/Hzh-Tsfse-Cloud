@@ -24,13 +24,14 @@
             <groupId>com.hzh.common</groupId>
             <artifactId>hzh-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <!--mybatis 启动依赖-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
+            <version>${mybatis-spring-boot-starter.version}</version>
         </dependency>
 
         <!--spring security -->

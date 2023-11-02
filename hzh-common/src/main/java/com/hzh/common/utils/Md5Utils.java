@@ -163,17 +163,6 @@ public class Md5Utils {
         return md5.equals(MD5(text)) || md5.equals(MD5(text).toUpperCase());
     }
 
-    /**
-     * 测试
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        String plainText = "123456";
-
-        System.out.println(MD5(plainText));
-
-    }
 
 }
 

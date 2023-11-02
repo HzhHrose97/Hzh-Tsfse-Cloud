@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.order.FootballPaymentInfo;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import com.hzh.order.service.FootballPaymentInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,10 +35,10 @@ public class FootballPaymentInfoController {
 
     @ApiOperation(value = "获取足球订单支付的全部信息",tags = "足球订单")
     @GetMapping("/getAllFootballInfo")
-    public Result getAllFootballInfo(){
+    public MyResult getAllFootballInfo(){
         try {
             List<FootballPaymentInfo> footballPaymentInfos =  footballPaymentInfoService.getAllFootballPaymentInfoInfo();
-            return Result.SUCCESS("getAllFootballInfo success",footballPaymentInfos);
+            return MyResult.SUCCESS("getAllFootballInfo success",footballPaymentInfos);
         }catch (Exception e){
             log.error(" getAllFootballInfo  error",e);
             throw new RuntimeException("getAllFootballInfo error");
@@ -47,13 +47,13 @@ public class FootballPaymentInfoController {
 
     @ApiOperation(value = "分页获取足球订单支付的全部信息",tags = "足球订单")
     @PostMapping("/pageGetAllFootballOrderInfo")
-    public Result pageGetAllFootballOrderInfo(@RequestBody PaginationDTO paginationDTO){
+    public MyResult pageGetAllFootballOrderInfo(@RequestBody PaginationDTO paginationDTO){
         try {
             int current = null == paginationDTO.getCurrent() ? 1 : paginationDTO.getCurrent();
             int size = null == paginationDTO.getSize() ? 10 :  paginationDTO.getSize();
             Page<FootballPaymentInfo> page = new Page<>(current, size);
             IPage<FootballPaymentInfo> footballPaymentInfoIPage = footballPaymentInfoService.selectPage(page);
-            return Result.SUCCESS("pageGetAllFootballOrderInfo success",footballPaymentInfoIPage);
+            return MyResult.SUCCESS("pageGetAllFootballOrderInfo success",footballPaymentInfoIPage);
         }catch (Exception e){
             log.error("pageGetAllFootballOrderInfo  error",e);
             throw new RuntimeException("pageGetAllFootballOrderInfo error");

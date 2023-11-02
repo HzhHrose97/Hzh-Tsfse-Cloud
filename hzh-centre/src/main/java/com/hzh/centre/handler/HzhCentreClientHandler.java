@@ -1,8 +1,7 @@
 package com.hzh.centre.handler;
 
 import com.hzh.centre.openfeign.HzhCentreClient;
-import com.hzh.centre.openfeign.HzhEventClient;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +15,14 @@ import org.springframework.stereotype.Component;
 public class HzhCentreClientHandler implements HzhCentreClient {
 
     @Override
-    public Result getAllChinaCity() {
+    public MyResult getAllChinaCity() {
         log.error("共享中心调度发生熔断");
-        return Result.FAILED("共享中心调度发生熔断");
+        return MyResult.FAILED("共享中心调度发生熔断");
     }
 
     @Override
-    public Result paginationGetAll() {
+    public MyResult paginationGetAll() {
         log.error("共享中心调度发生熔断");
-        return Result.FAILED("共享中心调度发生熔断");
+        return MyResult.FAILED("共享中心调度发生熔断");
     }
 }

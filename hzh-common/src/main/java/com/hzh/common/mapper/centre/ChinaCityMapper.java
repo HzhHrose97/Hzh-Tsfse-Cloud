@@ -18,4 +18,5 @@ import java.util.List;
 public interface ChinaCityMapper extends BaseMapper<ChinaCity> {
 
 
+    List<ChinaCity> getAllChinaCity();
 }

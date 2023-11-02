@@ -1,6 +1,7 @@
 package com.hzh.common.respone;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * 统一结果返回类
@@ -15,7 +16,8 @@ import lombok.Data;
  * @since 2022/8/11 14:25
  */
 @Data
-public class Result {
+@Component
+public class MyResult {
 
     public static final int CODE_SUCCESS = 200;
     public static final int CODE_FAILED = 400;
@@ -32,28 +34,28 @@ public class Result {
 
 
     //提供一些静态的方法，可以快速的创建返回对象
-    public static Result SUCCESS(String msg){
-        Result r = new Result();
+    public static MyResult SUCCESS(String msg){
+        MyResult r = new MyResult();
         r.code = CODE_SUCCESS;
         r.msg = msg;
         r.success = true;
         return r;
     }
 
-    public static Result SUCCESS(String msg, Object data){
-        Result success = SUCCESS(msg);
+    public static MyResult SUCCESS(String msg, Object data){
+        MyResult success = SUCCESS(msg);
         success.data = data;
         return success;
     }
 
-    public static Result NOT_LOGIN(){
-        Result filed = FAILED("账号未登录");
+    public static MyResult NOT_LOGIN(){
+        MyResult filed = FAILED("账号未登录");
         filed.code = CODE_NOT_LOGIN;
         return filed;
     }
 
-    public static Result FAILED(String msg){
-        Result r = new Result();
+    public static MyResult FAILED(String msg){
+        MyResult r = new MyResult();
         r.code = CODE_FAILED;
         r.msg = msg;
         r.success = false;
@@ -61,8 +63,8 @@ public class Result {
     }
 
 
-    public static Result FAILED(String msg, Object data){
-        Result success = SUCCESS(msg);
+    public static MyResult FAILED(String msg, Object data){
+        MyResult success = SUCCESS(msg);
         success.data = data;
         return success;
     }

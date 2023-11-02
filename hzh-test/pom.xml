@@ -52,6 +52,21 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--Quartz是一个功能强大的开源任务调度框架，允许你创建复杂的定时任务和调度作业。-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.0</version> <!-- 使用适当的版本 -->
+        </dependency>
+        <dependency>
+            <groupId>com.hzh.centre</groupId>
+            <artifactId>hzh-centre</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+
     </dependencies>
 
     <build>
