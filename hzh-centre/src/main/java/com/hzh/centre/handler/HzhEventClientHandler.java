@@ -1,7 +1,7 @@
 package com.hzh.centre.handler;
 
 import com.hzh.centre.openfeign.HzhEventClient;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class HzhEventClientHandler implements HzhEventClient {
 
     @Override
-    public Result getAllBashetballEventInfo() {
+    public MyResult getAllBashetballEventInfo() {
         log.error("赛事中心调度发生熔断");
-        return Result.FAILED("赛事中心调度发生熔断");
+        return MyResult.FAILED("赛事中心调度发生熔断");
     }
 }

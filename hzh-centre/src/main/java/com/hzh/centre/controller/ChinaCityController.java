@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.centre.service.ChinaCityService;
 import com.hzh.common.pojo.centre.ChinaCity;
 import com.hzh.common.pojo.dto.PaginationDTO;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -35,10 +35,10 @@ public class ChinaCityController {
 
     @ApiOperation("获取全部中国城市")
     @GetMapping("/getAllChinaCity")
-    public Result getAllChinaCity(){
+    public MyResult getAllChinaCity(){
         try{
             List<ChinaCity> chinaCityList = chinaCityService.getAllChinaCity();
-            return Result.SUCCESS("getAllChinaCity success",chinaCityList);
+            return MyResult.SUCCESS("getAllChinaCity success",chinaCityList);
         }catch (Exception e){
             log.error("getAllChinaCity error",e);
             throw new RuntimeException("getAllChinaCity error");
@@ -47,13 +47,13 @@ public class ChinaCityController {
 
     @ApiOperation("分页获取中国城市")
     @PostMapping("/paginationGetAll")
-    public Result paginationGetAll(@RequestBody PaginationDTO paginationDTO){
+    public MyResult paginationGetAll(@RequestBody PaginationDTO paginationDTO){
         try {
             int current = null == paginationDTO.getCurrent() ? 1 : paginationDTO.getCurrent();
             int size = null == paginationDTO.getSize() ? 10 :  paginationDTO.getSize();
             Page<ChinaCity> page = new Page<>(current, size);
             IPage<ChinaCity> physicalHeldInfoIPage = chinaCityService.selectPage(page);
-            return Result.SUCCESS("paginationGetAll success",physicalHeldInfoIPage);
+            return MyResult.SUCCESS("paginationGetAll success",physicalHeldInfoIPage);
         }catch (Exception e){
             log.error("paginationGetAll  error",e);
             throw new RuntimeException("paginationGetAll error");

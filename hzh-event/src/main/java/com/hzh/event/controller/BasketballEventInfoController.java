@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.event.BasketballEventInfo;
-import com.hzh.common.respone.Result;
+import com.hzh.common.respone.MyResult;
 import com.hzh.event.service.BasketballEventInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,10 +36,10 @@ public class BasketballEventInfoController {
 
     @ApiOperation(value = "获取篮球赛事全部信息(包含历史赛事)",tags = "篮球赛事")
     @GetMapping("/getAllBashetballEventInfo")
-    public Result getAllBashetballEventInfo(){
+    public MyResult getAllBashetballEventInfo(){
         try {
             List<BasketballEventInfo> basketballEventInfoList =  basketballEventInfoService.getAllBashetballEventInfo();
-            return Result.SUCCESS("getAllBashetballEventInfo success",basketballEventInfoList);
+            return MyResult.SUCCESS("getAllBashetballEventInfo success",basketballEventInfoList);
         }catch (Exception e){
             log.error(" getAllBashetballEventInfo  error",e);
             throw new RuntimeException("getAllBashetballEventInfo error");
@@ -48,13 +48,13 @@ public class BasketballEventInfoController {
 
     @ApiOperation(value = "分页获取篮球赛事全部信息(包含历史赛事)",tags = "篮球赛事")
     @PostMapping("/pageGetAllBashetballEvent")
-    public Result pageGetAllBashetballEvent(@RequestBody PaginationDTO paginationDTO){
+    public MyResult pageGetAllBashetballEvent(@RequestBody PaginationDTO paginationDTO){
         try {
             int current = null == paginationDTO.getCurrent() ? 1 : paginationDTO.getCurrent();
             int size = null == paginationDTO.getSize() ? 10 :  paginationDTO.getSize();
             Page<BasketballEventInfo> page = new Page<>(current, size);
             IPage<BasketballEventInfo> basketballEventInfoIPage = basketballEventInfoService.selectPage(page);
-            return Result.SUCCESS("pageGetAllBashetballEvent success",basketballEventInfoIPage);
+            return MyResult.SUCCESS("pageGetAllBashetballEvent success",basketballEventInfoIPage);
         }catch (Exception e){
             log.error("pageGetAllBashetballEvent  error",e);
             throw new RuntimeException("pageGetAllBashetballEvent error");

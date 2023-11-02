@@ -4,10 +4,12 @@ import com.hzh.centre.config.DefaultFeignConfiguration;
 import com.hzh.centre.openfeign.HzhEventClient;
 import com.hzh.centre.openfeign.HzhTeamClinet;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.client.exception.MQClientException;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @Slf4j
 @MapperScan("com.hzh.common.mapper")
@@ -16,8 +18,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class HzhOrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HzhOrderApplication.class, args);
-        log.info("=================Hzh-Tsfse-Cloud 订单中心服务启动成功...=================");
+      SpringApplication.run(HzhOrderApplication.class, args);
+      log.info("=================Hzh-Tsfse-Cloud 订单中心服务启动成功...=================");
     }
 
 }

@@ -55,7 +55,7 @@ public class CodeGenerator2 {
          dsc.setDriverName("com.mysql.cj.jdbc.Driver");
          dsc.setUsername("root");
          dsc.setPassword("5q6W7e8R");
-         dsc.setUrl("jdbc:mysql://192.168.195.131:3306/hzh_tsfse_cloud?useOldAliasMetadataBehavior=true&useSSL=false&serverTimezone=GMT");
+         dsc.setUrl("jdbc:mysql://192.168.195.135:3306/hzh_tsfse_cloud?useOldAliasMetadataBehavior=true&useSSL=false&serverTimezone=GMT");
          dsc.setDbType(DbType.MYSQL);   //数据库类型设置
          mpg.setDataSource(dsc);
 

@@ -2,6 +2,7 @@ package com.hzh.common.mapper.event;
 
 import com.hzh.common.pojo.event.BasketballEventInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Hzh
  * @since 2023-03-27
  */
+@Mapper
 public interface BasketballEventInfoMapper extends BaseMapper<BasketballEventInfo> {
 
 }

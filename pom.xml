@@ -10,6 +10,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <modules>
+        <module>hzh-order</module>
+        <module>hzh-event</module>
+        <module>hzh-common</module>
+        <module>hzh-team</module>
+        <module>hzh-user</module>
+        <module>hzh-test</module>
+        <module>hzh-centre</module>
+        <module>hzh-gateway</module>
+    </modules>
+
     <groupId>com.hzh</groupId>
     <artifactId>Hzh-Tsfse-Cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -22,31 +33,22 @@
         <jjwt.version>0.9.0</jjwt.version>
         <redis.version>2.6.7</redis.version>
         <mysql.version>8.0.27</mysql.version>
-        <fastjson.version>2.0.25</fastjson.version>
+        <mybatis.version>3.4.1</mybatis.version>
         <velocity.version>1.7</velocity.version>
-        <mybatis.version>2.1.1</mybatis.version>
+        <HikariCP.version>4.0.3</HikariCP.version>
+        <rocketmq.version>4.9.4</rocketmq.version>
+        <fastjson.version>2.0.25</fastjson.version>
         <javax.main.version>1.6.2</javax.main.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
-        <cloud.openfeign.version>2.2.5.RELEASE</cloud.openfeign.version>
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
         <tomcat-embed-core.version>9.0.54</tomcat-embed-core.version>
+        <cloud.openfeign.version>2.2.5.RELEASE</cloud.openfeign.version>
         <springfox-boot-starter.version>3.0.1</springfox-boot-starter.version>
+        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
+        <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
         <spring-cloud-alibaba-dependencies.version>2.2.5.RELEASE</spring-cloud-alibaba-dependencies.version>
     </properties>
-
-    <modules>
-        <module>hzh-order</module>
-        <module>hzh-event</module>
-        <module>hzh-common</module>
-        <module>hzh-team</module>
-        <module>hzh-user</module>
-        <module>hzh-test</module>
-        <module>hzh-centre</module>
-        <module>hzh-gateway</module>
-    </modules>
-
-
 
     <dependencies>
         <!-- springboot 启动依赖-->
@@ -84,6 +86,13 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${spring-cloud-alibaba-dependencies.version}</version>
         </dependency>
+
+        <!--nacos 配置中心-->
+<!--        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${spring-cloud-alibaba-dependencies.version}</version>
+        </dependency>-->
 
         <!-- mysql驱动 -->
         <dependency>
@@ -131,6 +140,13 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
+        <!-- HikariCP连接池 -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${HikariCP.version}</version>
+        </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -152,11 +168,11 @@
         </dependency>
 
         <!-- tomcat -->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>${tomcat-embed-core.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat.embed</groupId>-->
+<!--            <artifactId>tomcat-embed-core</artifactId>-->
+<!--            <version>${tomcat-embed-core.version}</version>-->
+<!--        </dependency>-->
 
         <!--引入redis依赖-->
         <dependency>
@@ -164,6 +180,28 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${redis.version}</version>
         </dependency>
+
+        <!-- 引入rocketmq-->
+
+        <!-- RocketMQ 消费者依赖 -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>${rocketmq.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${rocketmq-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-common</artifactId>
+            <version>${rocketmq.version}</version>
+        </dependency>
+
 
         <!--引入jwt依赖-->
         <dependency>
@@ -220,6 +258,7 @@
 
         <!--实现全局扫描mapper下xml文件-->
         <resources>
+
             <resource>
                 <!--实现全局扫描yml文件-->
                 <directory>config</directory>
@@ -232,7 +271,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>**/xml/**/*.xml</include>
+                    <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>

@@ -6,9 +6,27 @@ spring:
     name: gateway
   cloud:
     nacos:
-      server-addr: 192.168.195.131:8848 # nacos地址
+      server-addr: 192.168.195.135:8848 # Nacos服务地址
       discovery:
-        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4
+        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4 # 命名空间ID
+        ephemeral: false # 是否为临时实例
+      config:
+        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4 # 配置命名空间ID
+        group: TSTSE-SERVER # 配置分组
+        cluster: config # 配置集群名称
+        isGlobal: false # 是否为全局配置
+      watch:
+        namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4 # 监控命名空间ID
+        group: TSTSE-SERVER # 监控分组
+        cluster: config # 监控集群名称
+      loadbalance:
+        algorithm: round_robin # 负载均衡算法，这里使用轮询算法
+      heartbeat:
+        enabled: true # 是否开启心跳检测功能
+        interval: 30000 # 心跳检测间隔时间，单位为毫秒
+        timeout: 10000 # 心跳超时时间，单位为毫秒
+      logging:
+        level: INFO # 日志级别，这里设置为INFO级别
     gateway:
       routes:
         - id: userService # 路由标示，必须唯一
