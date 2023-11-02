@@ -19,7 +19,7 @@ else
 fi
 
 # 指定 JVM 参数
-JVM_OPTS="-Dname=hzhCentre -Duser.timezone=Asia/Shanghai -Xms512M -Xmx512M -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC -Dspring.profiles.active=pro -Dserver.port=18083"
+JVM_OPTS="-Dname=hzhCentre -Duser.timezone=Asia/Shanghai -Xms512M -Xmx512M -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC -Dspring.profiles.active=pro"
 
 # 启动应用程序，同时指定配置文件
 java $JVM_OPTS -jar $JAR_FILE --spring.config.location=$CONFIG_FILE --logging.config=$LOGBACK_CONFIG

@@ -249,16 +249,10 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.12.RELEASE</version>
-            </plugin>
         </plugins>
 
         <!--实现全局扫描mapper下xml文件-->
         <resources>
-
             <resource>
                 <!--实现全局扫描yml文件-->
                 <directory>config</directory>

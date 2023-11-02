@@ -131,6 +131,16 @@ rocketmq-spring-boot-starter 2.2.0及其以上版本，配置是这样的：
 2.日志文件的配置信息以及项目配置信息均在conf文件下
 3.hzh-gataway模块可以到生产环境部署，其他模块无法生成jar包
 
+原因
+根项目的pom文件中加入了以下依赖导致其他模块在install时无法加载到common依赖从而无法生成jar包
+
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.3.12.RELEASE</version>
+    </plugin>-->
+
+
 
 
 

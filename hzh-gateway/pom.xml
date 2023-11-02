@@ -80,6 +80,14 @@
 
     <build>
         <finalName>hzhGateway</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.12.RELEASE</version>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

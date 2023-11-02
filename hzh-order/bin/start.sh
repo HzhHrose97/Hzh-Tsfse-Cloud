@@ -11,7 +11,7 @@ JAR_FILE="/root/tsfse/hzh-order/hzhOrder.jar"
 
 # 检查是否提供了配置文件参数，如果未提供，则使用默认配置文件路径
 if [ $# -eq 0 ]; then
-  CONFIG_FILE="/root/tsfse/hzh-order/config/application.yml"
+  CONFIG_FILE="/root/tsfse/hzh-order/config/bootstrap.yml"
   LOGBACK_CONFIG="/root/tsfse/hzh-order/config/logback-spring.xml"
 else
   CONFIG_FILE="$1"
@@ -19,7 +19,7 @@ else
 fi
 
 # 指定 JVM 参数
-JVM_OPTS="-Dname=hzhOrder -Duser.timezone=Asia/Shanghai -Xms512M -Xmx512M -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC -Dspring.profiles.active=pro -Dserver.port=18083"
+JVM_OPTS="-Dname=hzhOrder -Duser.timezone=Asia/Shanghai -Xms512M -Xmx512M -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC -Dspring.profiles.active=pro"
 
 # 启动应用程序，同时指定配置文件
 java $JVM_OPTS -jar $JAR_FILE --spring.config.location=$CONFIG_FILE --logging.config=$LOGBACK_CONFIG
