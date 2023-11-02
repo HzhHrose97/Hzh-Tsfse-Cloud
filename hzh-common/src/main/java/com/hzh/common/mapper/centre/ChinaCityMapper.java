@@ -3,6 +3,7 @@ package com.hzh.common.mapper.centre;
 import com.hzh.common.pojo.centre.ChinaCity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @since 2023-03-20
  */
 @Mapper
+@Repository
 public interface ChinaCityMapper extends BaseMapper<ChinaCity> {
 
 
