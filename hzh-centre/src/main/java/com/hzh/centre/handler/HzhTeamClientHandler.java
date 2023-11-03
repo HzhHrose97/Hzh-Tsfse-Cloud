@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  * @Date: 2023/3/31 17:19
  */
 @Slf4j
+@Component
 public class HzhTeamClientHandler implements HzhTeamClinet {
 
     @Override
