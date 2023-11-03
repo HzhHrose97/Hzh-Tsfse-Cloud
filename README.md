@@ -129,10 +129,12 @@ rocketmq-spring-boot-starter 2.2.0及其以上版本，配置是这样的：
 # 运维部署
 1.关于jdk环境，除tsfse项目以外均使用jdk8,所以在各个子模块的start.sh文件中需要指定jdk11路径地址
 2.日志文件的配置信息以及项目配置信息均在conf文件下
-3.hzh-gataway模块可以到生产环境部署，其他模块无法生成jar包
+3.hzh-order 无法启动（开发环境）
 
-原因
-根项目的pom文件中加入了以下依赖导致其他模块在install时无法加载到common依赖从而无法生成jar包
+# 常见问题以及处理
+1. 关于installinstall时无法加载到common依赖从而无法生成jar包  
+   原因： 根项目的pom文件中加入了以下依赖导致其他模块在
+
 
     <plugin>
         <groupId>org.springframework.boot</groupId>

@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
  * @author Hou Zhonghu
  * @since 2022/6/25 15:49
  */
+
 public class DefaultFeignConfiguration {
     @Bean
     public Logger.Level logLevel(){
