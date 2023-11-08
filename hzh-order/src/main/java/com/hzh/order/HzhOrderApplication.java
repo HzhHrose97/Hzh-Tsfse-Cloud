@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @Slf4j
-@MapperScan("com.hzh.common.mapper")
-@SpringBootApplication(scanBasePackages = {"com.hzh"} )
+@MapperScan("com.hzh.common.mapper.**")
+@SpringBootApplication(scanBasePackages = {"com.hzh.**"} )
 @EnableFeignClients(clients = {HzhEventClient.class, HzhTeamClinet.class}, defaultConfiguration = DefaultFeignConfiguration.class)
 public class HzhOrderApplication {
 

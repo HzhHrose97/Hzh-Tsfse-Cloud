@@ -2,6 +2,7 @@ package com.hzh.centre.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 /**
  * java代码实现日志配置
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.Bean;
  * @since 2022/6/25 15:49
  */
 
+@Component
 public class DefaultFeignConfiguration {
     @Bean
     public Logger.Level logLevel(){
