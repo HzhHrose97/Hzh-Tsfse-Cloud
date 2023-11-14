@@ -3,8 +3,6 @@ package com.hzh.order.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hzh.centre.openfeign.HzhEventClient;
-import com.hzh.centre.openfeign.HzhTeamClinet;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.order.BasketballOrder;
 import com.hzh.common.respone.MyResult;
@@ -37,13 +35,7 @@ import java.util.List;
 public class BasketballOrderController {
 
     @Resource
-    public BasketballOrderService basketballOrderService;
-
-    @Resource
-    private HzhEventClient hzhEventClient;
-
-    @Resource
-    private HzhTeamClinet hzhTeamClinet;
+    private BasketballOrderService basketballOrderService;
 
     @Resource
     private RedisKeyUtil redisKeyUtil;
@@ -78,7 +70,7 @@ public class BasketballOrderController {
         }
     }
 
-    @ApiOperation(value = "订单中心  测试远程调用  赛事中心" ,tags = "篮球订单 远程调用赛事中心")
+/*    @ApiOperation(value = "订单中心  测试远程调用  赛事中心" ,tags = "篮球订单 远程调用赛事中心")
     @PostMapping("/getAllBashetballEventInfo")
     public MyResult getAllBashetballEventInfo(){
         try {
@@ -88,19 +80,19 @@ public class BasketballOrderController {
             log.error("getAllBashetballEventInfo  error",e);
             throw new RuntimeException("getAllBashetballEventInfo error");
         }
-    }
+    }*/
 
-    @ApiOperation(value = "订单中心  测试远程调用  球队中心" ,tags = "篮球订单 远程调用球队中心")
+/*    @ApiOperation(value = "订单中心  测试远程调用  球队中心" ,tags = "篮球订单 远程调用球队中心")
     @PostMapping("/getAllBashetballTeamInfo")
     public MyResult getAllBashetballTeamInfo(){
         try {
             MyResult allBashetballTeamInfo = hzhTeamClinet.getAllBashetballTeamInfo();
             return MyResult.SUCCESS("远程调用球队中心 成功",allBashetballTeamInfo);
         }catch (Exception e){
-            log.error("getAllBashetballEventInfo  error",e);
-            throw new RuntimeException("getAllBashetballEventInfo error");
+            log.error("getAllBashetballTeamInfo  error",e);
+            throw new RuntimeException("getAllBashetballTeamInfo error");
         }
-    }
+    }*/
 
     @PostMapping("/addBashetballOrderInfo")
     @ApiOperation(value = "新增篮球订单",tags = "篮球订单")
@@ -137,6 +129,7 @@ public class BasketballOrderController {
             throw new RuntimeException("addBashetballOrderInfo error");
         }
     }
+
 
 }
 
