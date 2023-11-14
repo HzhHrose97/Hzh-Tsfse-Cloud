@@ -38,6 +38,7 @@
         <HikariCP.version>4.0.3</HikariCP.version>
         <rocketmq.version>4.9.4</rocketmq.version>
         <fastjson.version>2.0.25</fastjson.version>
+        <aspectjrt.version>1.9.7</aspectjrt.version>
         <javax.main.version>1.6.2</javax.main.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
@@ -45,6 +46,7 @@
         <tomcat-embed-core.version>9.0.54</tomcat-embed-core.version>
         <cloud.openfeign.version>2.2.5.RELEASE</cloud.openfeign.version>
         <springfox-boot-starter.version>3.0.1</springfox-boot-starter.version>
+        <jackson-datatype-jsr310.version>2.9.8</jackson-datatype-jsr310.version>
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
         <rocketmq-spring-boot-starter.version>2.2.0</rocketmq-spring-boot-starter.version>
         <spring-cloud-alibaba-dependencies.version>2.2.5.RELEASE</spring-cloud-alibaba-dependencies.version>
@@ -217,11 +219,11 @@
             <version>${fastjson.version}</version>
         </dependency>
 
-        <!-- 引入远程调用依赖openfeign -->
+        <!-- Jackson在处理Java 8的日期和时间类型时 -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>${cloud.openfeign.version}</version>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-datatype-jsr310.version}</version>
         </dependency>
 
         <dependency>

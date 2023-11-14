@@ -81,15 +81,26 @@ mybatis-plus:
 swagger:
   enable: true
 
-#对feign的优化 一个是 引入httpclient 开启连接池  另一个是日志开启级别
-feign:
-  httpclient:
-    enabled: true # 开启feign对HttpClient的支持
-    max-connections: 200 # 最大连接数
-    max-connections-per-route: 50 # 单个路径的最大连接数
+##对feign的优化 一个是 引入httpclient 开启连接池  另一个是日志开启级别
+#feign:
+#  httpclient:
+#    enabled: true # 开启feign对HttpClient的支持
+#    max-connections: 200 # 最大连接数
+#    max-connections-per-route: 50 # 单个路径的最大连接数
+#    #控制日志level，
+#    default:
+#      # 默认：NULL
+#      # NONE      没有日志
+#      # BASIC     只记录请求方法和URL以及响应状态码和执行时间
+#      # HEADERS   记录基本信息以及请求和响应头
+#      # FULL      记录请求和响应的头、正文和元数据
+#      loggerLevel: FULL
+#  hystrix:
+#    enabled: true
 
-  hystrix:
-    enabled: true
+logging:
+  pattern:
+    dataformat: MM-dd HH-mm:ss:SSS
 
 
 
