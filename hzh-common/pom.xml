@@ -52,6 +52,21 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- OpenFeign 依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${cloud.openfeign.version}</version>
+        </dependency>
+
+        <!-- Hystrix 依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>${cloud.openfeign.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
