@@ -1,11 +1,10 @@
-package com.hzh.order.service.impl;
+package com.hzh.order.service.impl.football;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.order.FootballOrder;
-import com.hzh.common.pojo.order.FootballOrder;
 import com.hzh.common.mapper.order.FootballOrderMapper;
-import com.hzh.order.service.FootballOrderService;
+import com.hzh.order.service.football.FootballOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

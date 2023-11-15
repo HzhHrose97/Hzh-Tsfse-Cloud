@@ -1,11 +1,11 @@
-package com.hzh.order.service.impl;
+package com.hzh.order.service.impl.basketball;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.order.BasketballOrder;
 import com.hzh.common.mapper.order.BasketballOrderMapper;
-import com.hzh.order.service.BasketballOrderService;
+import com.hzh.order.service.basketball.BasketballOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

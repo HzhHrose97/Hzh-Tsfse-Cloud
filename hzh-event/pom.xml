@@ -34,10 +34,11 @@
             <version>${mybatis-spring-boot-starter.version}</version>
         </dependency>
 
+        <!-- AOP切面 -->
         <dependency>
             <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectjrt.version}</version>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.7</version> <!-- 替换为你需要的版本 -->
         </dependency>
 
 

@@ -1,11 +1,11 @@
-package com.hzh.order.service.impl;
+package com.hzh.order.service.impl.basketball;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.order.BasketballPaymentInfo;
 import com.hzh.common.mapper.order.BasketballPaymentInfoMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.hzh.order.service.BasketballPaymentInfoService;
+import com.hzh.order.service.basketball.BasketballPaymentInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
