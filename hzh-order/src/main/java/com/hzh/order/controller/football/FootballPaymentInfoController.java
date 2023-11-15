@@ -1,4 +1,4 @@
-package com.hzh.order.controller;
+package com.hzh.order.controller.football;
 
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hzh.common.pojo.dto.PaginationDTO;
 import com.hzh.common.pojo.order.FootballPaymentInfo;
 import com.hzh.common.respone.MyResult;
-import com.hzh.order.service.FootballPaymentInfoService;
+import com.hzh.order.service.football.FootballPaymentInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

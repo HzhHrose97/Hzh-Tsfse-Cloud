@@ -27,19 +27,6 @@
             <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.hzh.centre</groupId>
-            <artifactId>hzh-centre</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.hzh.event</groupId>
-            <artifactId>hzh-event</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!--mybatis 启动依赖-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -54,6 +41,12 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- AOP切面 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.7</version> <!-- 替换为你需要的版本 -->
+        </dependency>
 
     </dependencies>
 
