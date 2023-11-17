@@ -7,6 +7,8 @@ import com.hzh.common.pojo.user.HzhUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.hzh.common.respone.MyResult;
 
+import java.util.List;
+
 /**
  * <p>
  * 用户表 服务类
@@ -26,4 +28,6 @@ public interface HzhUserService extends IService<HzhUser> {
     MyResult updatePasswordByuserSelf(RegisterDTO registerDTO);
 
     MyResult sendEmailCodeWhenUpdatePassword(String email);
+
+    List<HzhUser> getAllUserInfo();
 }

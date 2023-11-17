@@ -38,4 +38,7 @@
             ( email = #{email} AND phonenumber = #{phonenumber} )
     </update>
 
+    <select id="getAllUserInfo" resultMap="BaseResultMap">
+        SELECT * FROM hzh_user
+    </select>
 </mapper>

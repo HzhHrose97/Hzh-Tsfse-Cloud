@@ -58,11 +58,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <!-- 由于gateway模块不需要该依赖，且exclusion标签不生效，所有只能在父工程中注释调，在需要的子模块中单独添加-->
-<!--        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
 
         <!-- springCloud  版本管理-->
         <dependency>
@@ -88,13 +83,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${spring-cloud-alibaba-dependencies.version}</version>
         </dependency>
-
-        <!--nacos 配置中心-->
-<!--        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>${spring-cloud-alibaba-dependencies.version}</version>
-        </dependency>-->
 
         <!-- mysql驱动 -->
         <dependency>
@@ -169,13 +157,6 @@
             <version>${swagger-ui.version}</version>
         </dependency>
 
-        <!-- tomcat -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.tomcat.embed</groupId>-->
-<!--            <artifactId>tomcat-embed-core</artifactId>-->
-<!--            <version>${tomcat-embed-core.version}</version>-->
-<!--        </dependency>-->
-
         <!--引入redis依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -184,7 +165,6 @@
         </dependency>
 
         <!-- 引入rocketmq-->
-
         <!-- RocketMQ 消费者依赖 -->
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
@@ -203,7 +183,6 @@
             <artifactId>rocketmq-common</artifactId>
             <version>${rocketmq.version}</version>
         </dependency>
-
 
         <!--引入jwt依赖-->
         <dependency>

@@ -28,8 +28,8 @@ import java.util.List;
  * @since 2023-03-27
  */
 @Slf4j
+@Api("订单中心")
 @CrossOrigin
-@Api(tags = "订单中心")
 @RestController
 @RequestMapping("/basketballOrder")
 public class BasketballOrderController {
@@ -69,30 +69,6 @@ public class BasketballOrderController {
             throw new RuntimeException("pageGetAllBasketballOrderInfo error");
         }
     }
-
-/*    @ApiOperation(value = "订单中心  测试远程调用  赛事中心" ,tags = "篮球订单 远程调用赛事中心")
-    @PostMapping("/getAllBashetballEventInfo")
-    public MyResult getAllBashetballEventInfo(){
-        try {
-            MyResult allBashetballEventInfo = hzhEventClient.getAllBashetballEventInfo();
-            return MyResult.SUCCESS("远程调用赛事中心 成功",allBashetballEventInfo);
-        }catch (Exception e){
-            log.error("getAllBashetballEventInfo  error",e);
-            throw new RuntimeException("getAllBashetballEventInfo error");
-        }
-    }*/
-
-/*    @ApiOperation(value = "订单中心  测试远程调用  球队中心" ,tags = "篮球订单 远程调用球队中心")
-    @PostMapping("/getAllBashetballTeamInfo")
-    public MyResult getAllBashetballTeamInfo(){
-        try {
-            MyResult allBashetballTeamInfo = hzhTeamClinet.getAllBashetballTeamInfo();
-            return MyResult.SUCCESS("远程调用球队中心 成功",allBashetballTeamInfo);
-        }catch (Exception e){
-            log.error("getAllBashetballTeamInfo  error",e);
-            throw new RuntimeException("getAllBashetballTeamInfo error");
-        }
-    }*/
 
     @PostMapping("/addBashetballOrderInfo")
     @ApiOperation(value = "新增篮球订单",tags = "篮球订单")

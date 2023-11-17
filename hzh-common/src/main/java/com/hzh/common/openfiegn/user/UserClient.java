@@ -1,5 +1,6 @@
 package com.hzh.common.openfiegn.user;
 
+import com.hzh.common.respone.MyResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,4 +17,6 @@ public interface UserClient {
     @RequestMapping(value = "/hzh-user/api/user/test",method = RequestMethod.GET)
     String getUserTest() ;
 
+    @RequestMapping(value = "/hzh-user/api/user/getAllUserInfo",method = RequestMethod.GET)
+    MyResult getAllUserInfo();
 }

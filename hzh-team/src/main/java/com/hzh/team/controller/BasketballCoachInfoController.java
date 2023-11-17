@@ -40,7 +40,7 @@ public class BasketballCoachInfoController {
             int size = null == paginationDTO.getSize() ? 10 :  paginationDTO.getSize();
             Page<BasketballCoachInfo> page = new Page<>(current, size);
             IPage<BasketballCoachInfo> basketballCoachInfoIPage =  basketballCoachInfoService.selectPage(page);
-            return MyResult.SUCCESS("basketballCoachInfoIPage success");
+            return MyResult.SUCCESS("basketballCoachInfoIPage success",basketballCoachInfoIPage);
         }catch (Exception e){
             log.error("pageGetBasketAll error",e);
             throw new RuntimeException("pageGetBasketAll error");

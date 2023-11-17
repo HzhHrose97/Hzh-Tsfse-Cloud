@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
  * 用户表 Mapper 接口
@@ -20,4 +22,7 @@ public interface HzhUserMapper extends BaseMapper<HzhUser> {
                                      @Param("phonenumber") String phonenumber,
                                      @Param("email") String email,
                                      @Param("date") String date);
+
+    List<HzhUser> getAllUserInfo();
+
 }

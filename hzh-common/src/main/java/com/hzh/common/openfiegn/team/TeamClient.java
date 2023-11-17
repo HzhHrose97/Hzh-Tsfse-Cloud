@@ -1,5 +1,6 @@
 package com.hzh.common.openfiegn.team;
 
+import com.hzh.common.respone.MyResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,4 +17,6 @@ public interface TeamClient {
     @RequestMapping(value = "/hzh-team/api/team/test",method = RequestMethod.GET)
     String getTeamTest() ;
 
+    @RequestMapping(value = "/hzh-team/api/team/getAllBashetballTeamInfo",method = RequestMethod.GET)
+    MyResult getAllBashetballTeamInfo();
 }

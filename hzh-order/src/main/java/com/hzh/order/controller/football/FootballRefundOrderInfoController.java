@@ -33,7 +33,7 @@ public class FootballRefundOrderInfoController {
     @Resource
     public FootballRefundOrderInfoService footballRefundOrderInfoService;
 
-    @ApiOperation(value = "获取足球订单退款的全部信息",tags = "足球订单")
+    @ApiOperation(value = "获取足球订单退款的全部信息",tags = "足球退款订单")
     @GetMapping("/getAllFootballRefundOrderInfo")
     public MyResult getAllFootballRefundOrderInfo(){
         try {
@@ -45,7 +45,7 @@ public class FootballRefundOrderInfoController {
         }
     }
 
-    @ApiOperation(value = "分页获取足球订单退款的全部信息",tags = "足球订单")
+    @ApiOperation(value = "分页获取足球订单退款的全部信息",tags = "足球退款订单")
     @PostMapping("/pageGetAllFootballRefundOrderInfo")
     public MyResult pageGetAllFootballRefundOrderInfo(@RequestBody PaginationDTO paginationDTO){
         try {
