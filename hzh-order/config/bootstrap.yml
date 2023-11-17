@@ -42,6 +42,33 @@ spring:
         min-idle: 0
         max-wait: -1
 
+    # 消费者（客户端）的Hystrix配置
+    #spring:
+    #  cloud:
+    sentinel:
+      enabled: true
+      datasource:
+        ds:
+          - nacos:
+              server-addr: 192.168.195.135:8848
+              groupId: TSTSE-SERVER
+              dataId: sentinel-datasource
+              namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4  # Sentinel配置的命名空间ID
+              rule-type: flow
+
+  # 消费者（客户端）的Feign配置
+  feign:
+    enabled: true
+    httpclient:
+      enabled: true            # 开启feign对HttpClient的支持
+      max-connections: 200     # 最大连接数
+      max-connections-per-route: 50   # 单个路径的最大连接数
+      connection-timeout: 2000        # 超时时间
+      config:
+        default:
+          # 开启全日志
+          loggerLevel: FULL
+
   mybatis-plus:
     type-aliases-package: com.hzh.common.pojo
     configuration:
@@ -49,14 +76,6 @@ spring:
       map-underscore-to-camel-case: true
   swagger:
     enable: true
-  feign:
-    httpclient:
-      enabled: true # 开启feign对HttpClient的支持
-      max-connections: 200 # 最大连接数
-      max-connections-per-route: 50 # 单个路径的最大连接数
-    hystrix:
-      enabled: true
-
 
 
 rocketmq:

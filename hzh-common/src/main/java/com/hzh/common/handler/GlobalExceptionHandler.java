@@ -5,6 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * @Description: 全局错误处理
  * @Author: FXS) Hzh
@@ -15,8 +18,17 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception e) {
-        // 处理异常逻辑
-        return new ResponseEntity<>("An error occurred: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+        // 获取当前时间
+        LocalDateTime currentTime = LocalDateTime.now();
+
+        // 格式化时间
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedTime = currentTime.format(formatter);
+
+        // 构建错误消息
+        String errorMessage = "An error occurred at " + formattedTime + ": " + e.getMessage();
+
+        // 返回带有时间信息的错误消息和HTTP状态码
+        return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);    }
 
 }
