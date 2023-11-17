@@ -34,14 +34,6 @@ spring:
       logging:
         level: INFO # 日志级别，这里设置为INFO级别
 
-rocketmq:
-  name-server: 192.168.195.135:9876 # RocketMQ的Name Server地址，可以使用环境变量配置
-  producer:
-    group: Produce-HzhCentre # 生产者所属的组名
-    topic: Hzh-Centre # 生产者要发送消息的主题
-    max-message-size: 4194304 # 最大消息大小，默认值为4MB
-    send-message-timeout: 3000 # 发送消息超时时间（单位：毫秒）
-
 
 #redis配置
   redis:
@@ -66,8 +58,23 @@ rocketmq:
       # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
       max-wait: -1
 
+    # 配置Sentinel的流控规则
+    #spring:
+    #  cloud:
+    sentinel:
+      enabled: true
+      datasource:
+        ds:
+          - nacos:
+              server-addr: 192.168.195.135:8848
+              groupId: TSTSE-SERVER
+              dataId: sentinel-datasource
+              namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4  # Sentinel配置的命名空间ID
+              rule-type: flow
 
-
+feign:
+  sentinel:
+    enabled: true  # 启用Feign的Sentinel支持
 
 mybatis-plus:
   type-aliases-package: com.hzh.common.pojo
@@ -81,30 +88,18 @@ mybatis-plus:
 swagger:
   enable: true
 
-##对feign的优化 一个是 引入httpclient 开启连接池  另一个是日志开启级别
-feign:
-  httpclient:
-    enabled: true # 开启feign对HttpClient的支持
-    max-connections: 200 # 最大连接数
-    max-connections-per-route: 50 # 单个路径的最大连接数
-    #控制日志level，
-    default:
-      # 默认：NULL
-      # NONE      没有日志
-      # BASIC     只记录请求方法和URL以及响应状态码和执行时间
-      # HEADERS   记录基本信息以及请求和响应头
-      # FULL      记录请求和响应的头、正文和元数据
-      loggerLevel: FULL
-  circuitbreaker:
-    enabled: true
-
 logging:
   pattern:
     dataformat: MM-dd HH-mm:ss:SSS
 
 
-
-
+rocketmq:
+  name-server: 192.168.195.135:9876 # RocketMQ的Name Server地址，可以使用环境变量配置
+  producer:
+    group: Produce-HzhCentre # 生产者所属的组名
+    topic: Hzh-Centre # 生产者要发送消息的主题
+    max-message-size: 4194304 # 最大消息大小，默认值为4MB
+    send-message-timeout: 3000 # 发送消息超时时间（单位：毫秒）
 
 
 

@@ -56,6 +56,23 @@ spring:
       min-idle: 0
       # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
       max-wait: -1
+      # 配置Sentinel的流控规则
+      #spring:
+      #  cloud:
+    sentinel:
+      enabled: true
+      datasource:
+        ds:
+          - nacos:
+              server-addr: 192.168.195.135:8848
+              groupId: TSTSE-SERVER
+              dataId: sentinel-datasource
+              namespace: 5aad18f7-8ffe-4538-b7e7-3e8281a403f4  # Sentinel配置的命名空间ID
+              rule-type: flow
+
+feign:
+  sentinel:
+    enabled: true  # 启用Feign的Sentinel支持
 
 
 mybatis-plus:
@@ -70,12 +87,8 @@ swagger:
 
 
 
-##对feign的优化 一个是 引入httpclient 开启连接池  另一个是日志开启级别
-#feign:
-#  httpclient:
-#    enabled: true # 开启feign对HttpClient的支持
-#    max-connections: 200 # 最大连接数
-#    max-connections-per-route: 50 # 单个路径的最大连接数
+
+
 
 
 
