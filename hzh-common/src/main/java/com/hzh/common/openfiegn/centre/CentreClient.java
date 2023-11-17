@@ -1,5 +1,6 @@
 package com.hzh.common.openfiegn.centre;
 
+import com.hzh.common.respone.MyResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient("centreService")
 public interface CentreClient {
 
-    //测试fallback全局异常
     @RequestMapping(value = "/hzh-centre/api/centre/test",method = RequestMethod.GET)
     String getCentreTest() ;
 
+    @RequestMapping(value = "/hzh-centre/api/centre/getAllCentreChinaCityInfo",method = RequestMethod.GET)
+    MyResult getAllCentreChinaCityInfo();
 }

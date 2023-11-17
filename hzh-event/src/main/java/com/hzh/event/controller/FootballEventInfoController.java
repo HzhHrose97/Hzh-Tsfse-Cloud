@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Slf4j
 @CrossOrigin
-@Api(tags = "赛事中心")
+@Api(value = "赛事中心")
 @RestController
 @RequestMapping("/footballEventInfo")
 public class FootballEventInfoController {

@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -354,6 +355,12 @@ public class HzhUserServiceImpl extends ServiceImpl<HzhUserMapper,HzhUser> imple
             log.error(" error",e);
             throw new RuntimeException(" error");
         }
+    }
+
+    @Override
+    public List<HzhUser> getAllUserInfo() {
+        List<HzhUser> allUserInfo = hzhUserMapper.getAllUserInfo();
+        return allUserInfo;
     }
 
 

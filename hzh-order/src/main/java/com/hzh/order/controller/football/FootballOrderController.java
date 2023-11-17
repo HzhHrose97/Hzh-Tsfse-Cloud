@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Slf4j
 @CrossOrigin
-@Api(tags = "订单中心")
+@Api("订单中心")
 @RestController
 @RequestMapping("/footballOrder")
 public class FootballOrderController {

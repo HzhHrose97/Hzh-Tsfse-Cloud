@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Slf4j
 @CrossOrigin
-@Api(tags = "订单中心")
+@Api("订单中心")
 @RestController
 @RequestMapping("/footballPaymentInfo")
 public class FootballPaymentInfoController {
@@ -33,7 +33,7 @@ public class FootballPaymentInfoController {
     @Resource
     public FootballPaymentInfoService footballPaymentInfoService;
 
-    @ApiOperation(value = "获取足球订单支付的全部信息",tags = "足球订单")
+    @ApiOperation(value = "获取足球订单支付的全部信息",tags = "足球支付订单")
     @GetMapping("/getAllFootballInfo")
     public MyResult getAllFootballInfo(){
         try {
@@ -45,7 +45,7 @@ public class FootballPaymentInfoController {
         }
     }
 
-    @ApiOperation(value = "分页获取足球订单支付的全部信息",tags = "足球订单")
+    @ApiOperation(value = "分页获取足球订单支付的全部信息",tags = "足球支付订单")
     @PostMapping("/pageGetAllFootballOrderInfo")
     public MyResult pageGetAllFootballOrderInfo(@RequestBody PaginationDTO paginationDTO){
         try {
